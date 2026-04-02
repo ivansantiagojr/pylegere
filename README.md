@@ -1,6 +1,8 @@
 # pylegere
 
-A Python extension module built with [PyOZ](https://github.com/pyozig/PyOZ).
+A Python extension module to calculate the readability of your texts built with [PyOZ](https://github.com/pyozig/PyOZ).
+
+`pylegere` consists of Python bindings for the [liblegere](https://github.com/ivansantiagojr/liblegere) implemented in Zig.
 
 ## Building
 
@@ -36,14 +38,7 @@ pyoz build-wheel
 ```python
 import pylegere
 
-# Add two numbers
-result = pylegere.add(2, 3)
-print(result)  # 5
-
-# Multiply floats
-result = pylegere.multiply(2.5, 4.0)
-print(result)  # 10.0
-
-# Get a greeting
-print(pylegere.greet("World"))
+# calculate the automated readability index
+result = pylegere.ari("Hello, world!")
+print(result)  # 4.0
 ```

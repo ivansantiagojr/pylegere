@@ -1,23 +1,13 @@
 const pyoz = @import("PyOZ");
+const legere = @import("legere");
 
 // ============================================================================
 // Define your functions here
 // ============================================================================
 
-/// Add two integers
-fn add(a: i64, b: i64) i64 {
-    return a + b;
-}
-
-/// Multiply two floats
-fn multiply(a: f64, b: f64) f64 {
-    return a * b;
-}
-
-/// Greet someone by name
-fn greet(name: []const u8) ![]const u8 {
-    _ = name;
-    return "Hello from pylegere!";
+fn ari(text: []const u8) !f64 {
+    const result = try legere.formulas.ari(text);
+    return result;
 }
 
 // ============================================================================
@@ -26,11 +16,9 @@ fn greet(name: []const u8) ![]const u8 {
 
 pub const Module = pyoz.module(.{
     .name = "pylegere",
-    .doc = "pylegere - A Python extension module built with PyOZ",
+    .doc = "pylegere - Python bindings for the Zig implementation of liblegere.",
     .funcs = &.{
-        pyoz.func("add", add, "Add two integers"),
-        pyoz.func("multiply", multiply, "Multiply two floats"),
-        pyoz.func("greet", greet, "Return a greeting"),
+        pyoz.func("ari", ari, "Return the Automated Readability English of a text."),
     },
     .classes = &.{},
 });

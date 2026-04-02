@@ -19,6 +19,15 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    // Legere dependency
+    const legere = b.dependency(
+        "legere",
+        .{
+            .target = target,
+            .optimize = optimize,
+        },
+    );
+
     // Create the user's lib module
     const user_lib_mod = b.createModule(.{
         .root_source_file = b.path("src/lib.zig"),
@@ -27,6 +36,7 @@ pub fn build(b: *std.Build) void {
         .strip = strip,
         .imports = &.{
             .{ .name = "PyOZ", .module = pyoz_dep.module("PyOZ") },
+            .{ .name = "legere", .module = legere.module("legere") },
         },
     });
 
@@ -62,5 +72,4 @@ pub fn build(b: *std.Build) void {
         .dest_sub_path = "pylegere" ++ ext,
     });
     b.getInstallStep().dependOn(&install.step);
-
 }

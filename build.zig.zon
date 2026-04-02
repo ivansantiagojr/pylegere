@@ -7,6 +7,10 @@
             .url = "https://github.com/pyozig/PyOZ/archive/refs/tags/v0.12.2.tar.gz",
             .hash = "PyOZ-0.12.2-ntlpPuP8FwB3i629dScseeVY-p6-F4DV3nL9awKke0S1",
         },
+        .legere = .{
+            .url = "git+https://github.com/ivansantiagojr/liblegere.git#f12fc984ba6cb371edb367da5a84e8bba52be046",
+            .hash = "legere-0.0.0--L4chdopAABz1_I4GTtNwv1bp1QajPTiSUl6h8oq1B-n",
+        },
     },
     .paths = .{
         "build.zig",

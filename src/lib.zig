@@ -6,7 +6,7 @@ const legere = @import("legere");
 // ============================================================================
 
 fn ari(text: []const u8) !f64 {
-    const result = try legere.formulas.ari(text);
+    const result = try legere.ari(text);
     return result;
 }
 

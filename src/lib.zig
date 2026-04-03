@@ -18,7 +18,7 @@ pub const Module = pyoz.module(.{
     .name = "pylegere",
     .doc = "pylegere - Python bindings for the Zig implementation of liblegere.",
     .funcs = &.{
-        pyoz.func("ari", ari, "Return the Automated Readability English of a text."),
+        pyoz.func("ari", ari, "Return the Automated Readability Index of an English text."),
     },
     .classes = &.{},
 });
